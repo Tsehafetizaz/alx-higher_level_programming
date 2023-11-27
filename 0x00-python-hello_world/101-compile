@@ -1,3 +1,22 @@
-#!/bin/bash
-python3 -m compileall $PYFILE -b
-Give feedback
+#!/usr/bin/env python3
+import os
+import compileall
+
+def compile_python_file():
+# Get the filename from the environment variable
+    pyfile = os.environ.get('PYFILE')
+if not pyfile:
+    raise ValueError("PYFILE environment variable is not set.")
+
+# Compile the Python file
+print(f"Compiling {pyfile} ...")
+compileall.compile_file(pyfile, force=True)
+
+# Rename the compiled file
+compiled_filename = pyfile + 'c'
+os.rename(f'__pycache__/{pyfile}c', compiled_filename)
+
+print(f"Compiled file saved as {compiled_filename}")
+
+if __name__ == "__main__":
+    compile_python_file()
