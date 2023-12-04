@@ -3,7 +3,7 @@
 def replace_in_list(my_list, idx, i):
     if idx < 0 or idx >= len(my_list):
         return my_list
-    else: 
+    else:
         my_list[idx] = i
         return my_list
 
@@ -13,7 +13,5 @@ if __name__ == "__main__":
     idx = 3
     i = 9
     new_list = replace_in_list(my_list, idx, i)
-    
-
     print(new_list)
     print(my_list)
