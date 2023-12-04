@@ -14,3 +14,4 @@ if __name__ == "__main__":
     element = 9
     new_list = replace_in_list(my_list, idx, element)
     print("The new list is", new_list)
+    print("The my list is", my_list)
