@@ -9,6 +9,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
 
     return (sum_first_elements, sum_second_elements)
 
+
 if __name__ == "__main__":
     tuple_a = (1, 89)
     tuple_b = (88, 11)
