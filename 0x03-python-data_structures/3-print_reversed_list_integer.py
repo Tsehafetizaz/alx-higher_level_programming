@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+
 def print_reversed_list_integer(my_list):
     reverse = my_list[::-1]
-    print(reverse)
+    for number in reverse:
+            print(f"{number:d}")
 
 
 if __name__ == "__main__":
