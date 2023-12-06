@@ -2,12 +2,12 @@
 
 def update_dictionary(a_dictionary, key, value):
     a_dictionary[key] = value
+    return a_dictionary
 
 
 def print_sorted_dictionary(a_dictionary):
-    sorted_dict = dict(sorted(a_dictionary.items()))
-    for key, value in sorted_dict.items():
-        print(f'{key}: {value}')
+    for key in sorted(a_dictionary.keys()):
+        print("{}: {}".format(key, a_dictionary[key]))
 
 
 if __name__ == "__main__":
