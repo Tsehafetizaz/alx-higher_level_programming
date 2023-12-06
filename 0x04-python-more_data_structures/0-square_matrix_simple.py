@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    new_matrix = matrix.copy()
+    if not matrix:
+        return []
 
-    for i in range(len(matrix)):
-        new_matrix[i] = list(map(lambda w: w**2, matrix[i]))
+    # Create a new matrix with the same size as the input matrix
+    new_matrix = []
 
-    return (new_matrix)
+    # Iterate over each row in the matrix
+    for row in matrix:
+        # Use a list comprehension to square each element in the row
+        squared_row = [x ** 2 for x in row]
+        # Add the squared row to the new matrix
+        new_matrix.append(squared_row)
+
+    return new_matrix
 
 
 if __name__ == "__main__":
