@@ -3,20 +3,19 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str) or roman_string is None:
         return 0
 
-    roman_numerals = {'I': 1, 'V': 5, 'X': 10,
-                      'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-
+    roman_numerals = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+                      'C': 100, 'D': 500, 'M': 1000}
     integer_value = 0
+    prev_value = 0
 
-    for i in range(len(roman_string)):
-
-        if i + 1 < len(roman_string) and roman_numerals[roman_string[i]] < 
-                                         roman_numerals[roman_string[i + 1]]:
-            integer_value -= roman_numerals[roman_string[i]]
+    for numeral in reversed(roman_string):
+        int_val = roman_numerals.get(numeral, 0)
+        if int_val < prev_value:
+            integer_value -= int_val
         else:
-            integer_value += roman_numerals[roman_string[i]]
-
-            return integer_value
+            integer_value += int_val
+        prev_value = int_val
+    return integer_value
 
 
 if __name__ == "__main__":
