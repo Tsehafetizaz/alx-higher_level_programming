@@ -12,15 +12,15 @@ def safe_print_list(my_list=[], x=0):
 
 
 if __name__ == "__main__":
-        my_list = [1, 2, 3, 4, 5]
+    my_list = [1, 2, 3, 4, 5]
 
-        nb_print = safe_print_list(my_list, 2)
-        print("nb_print: {:d}".format(nb_print))
+    nb_print = safe_print_list(my_list, 2)
+    print("nb_print: {:d}".format(nb_print))
 
-        nb_print = safe_print_list(my_list, 5)
-        length
-        print("nb_print: {:d}".format(nb_print))
+    nb_print = safe_print_list(my_list, 5)
+    length
+    print("nb_print: {:d}".format(nb_print))
 
-        nb_print = safe_print_list(my_list, 7)
-        value
-        print("nb_print: {:d}".format(nb_print))
+    nb_print = safe_print_list(my_list, 7)
+    value
+    print("nb_print: {:d}".format(nb_print))
