@@ -80,14 +80,14 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """Return a new Rectangle instance with width and height equal to size."""
+        """Return a new Rectangle instance with width and height equal size."""
         return cls(size, size)
 
     def __str__(self):
         """Return the printable representation of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        
+
         lines = []
         for _ in range(self.__height):
             lines.append(str(self.print_symbol) * self.__width)
