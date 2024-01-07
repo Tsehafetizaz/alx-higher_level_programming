@@ -2,12 +2,12 @@
 
 # Test with valid text
 >>> text_indentation("Hello. How are you? Fine, thank you:")
-Hello.$
-$
-How are you?$
-$
-Fine, thank you:$
-$
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+Fine, thank you:
+<BLANKLINE>
 
 # Test with no special characters
 >>> text_indentation("Hello How are you Fine thank you")

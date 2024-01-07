@@ -1,4 +1,4 @@
->>> matrix_divided = ___import__('2-matrix_divided').matrix_divided
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 # Test with valid matrix and divisor
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
