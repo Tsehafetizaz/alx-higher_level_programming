@@ -1,0 +1,24 @@
+>>> matrix_divided = ___import__('2-matrix_divided').matrix_divided
+
+# Test with valid matrix and divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test with uneven rows
+>>> matrix_divided([[1, 2], [3, 4, 5]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# Test with non-numeric divisor
+>>> matrix_divided([[1, 2], [3, 4]], 'a')
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
+# Test division by zero
+>>> matrix_divided([[1, 2], [3, 4]], 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
