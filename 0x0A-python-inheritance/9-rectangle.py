@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-from 7-base_geometry import BaseGeometry
+"""Defines a class Rectangle that inherits from BaseGeometry."""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     """
@@ -43,12 +45,3 @@ class Rectangle(BaseGeometry):
             str: The formatted string representation.
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
-
-if __name__ == "__main__":
-    # Test cases
-
-    r = Rectangle(3, 5)
-
-    print(r)
-    print(r.area())
