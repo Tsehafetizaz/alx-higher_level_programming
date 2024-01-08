@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Define base geometry class BaseGeometry."""
+
 
 class BaseGeometry:
     """
@@ -14,13 +16,3 @@ class BaseGeometry:
         """
         raise Exception("area() is not implemented")
 
-
-if __name__ == "__main__":
-    # Test cases
-
-    bg = BaseGeometry()
-
-    try:
-        print(bg.area())
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
