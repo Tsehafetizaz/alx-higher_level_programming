@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Defines a class MyInt that inherits from int."""
+
 
 class MyInt(int):
     """
@@ -28,11 +30,3 @@ class MyInt(int):
             bool: True if equal, False otherwise.
         """
         return super().__eq__(other)
-
-if __name__ == "__main__":
-    # Test cases
-
-    my_i = MyInt(3)
-    print(my_i)
-    print(my_i == 3)
-    print(my_i != 3)
