@@ -10,7 +10,7 @@ def inherits_from(obj, a_class):
         a_class (type): The class to check against.
 
     Returns:
-        bool: True if obj is an instance of a subclass of a_class, 
+        bool: True if obj is an instance of a subclass of a_class,
               otherwise False.
     """
     return isinstance(obj, a_class) and type(obj) != a_class
