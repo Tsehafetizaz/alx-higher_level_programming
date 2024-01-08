@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-from 9-rectangle import Rectangle
+"""Defines a Rectangle subclass Square."""
+Rectangle = __import__('9-rectangle').Rectangle
+
 
 class Square(Rectangle):
     """
@@ -32,11 +34,3 @@ class Square(Rectangle):
                  [Square] <width>/<height>.
         """
         return "[Square] {}/{}".format(self.__size, self.__size)
-
-if __name__ == "__main__":
-    # Test cases
-
-    s = Square(13)
-
-    print(s)
-    print(s.area())
