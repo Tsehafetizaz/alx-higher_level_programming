@@ -2,7 +2,7 @@
 """Writes a string to a text file"""
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     Writes a string to a text file returns the number of characters written.
 
