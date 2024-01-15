@@ -46,7 +46,10 @@ class Base:
             list_objs (list): A list of instances that inherit from Base.
         """
         filename = "{}.json".format(cls.__name__)
-        list_dicts = [obj.to_dictionary() for obj in list_objs] if list_objs else []
+        list_dicts = [
+            obj.to_dictionary()
+            for obj in list_objs
+        ] if list_objs else []
         json_string = cls.to_json_string(list_dicts)
         with open(filename, 'w') as file:
             file.write(json_string)
