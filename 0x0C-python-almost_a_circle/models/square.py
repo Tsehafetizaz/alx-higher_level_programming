@@ -74,4 +74,5 @@ class Square(Rectangle):
         """
         Return the string representation of the Square.
         """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.size)
+        position = f"{self.x}/{self.y}"
+        return f"[Square] ({self.id}) {position} - {self.size}"
