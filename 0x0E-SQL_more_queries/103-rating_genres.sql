@@ -1,4 +1,4 @@
---List all genres by their rating sum, in descending order
+-- List all genres by their rating sum, in descending order
 SELECT tv_genres.name, SUM(tv_show_ratings.rating) AS rating_sum
 FROM tv_genres
 JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id

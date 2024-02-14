@@ -1,4 +1,4 @@
---List all shows that are not categorized as Comedy
+-- List all shows that are not categorized as Comedy
 SELECT tv_shows.title
 FROM tv_shows
 WHERE tv_shows.id NOT IN (
