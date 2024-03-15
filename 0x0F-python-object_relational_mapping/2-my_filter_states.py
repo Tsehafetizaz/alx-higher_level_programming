@@ -1,30 +1,28 @@
+#!/usr/bin/python3
+"""
+This script displays values in the states table where name
+Usage: ./2-my_filter_states.py <mysql username>
+"""
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
+    db = MySQLdb.connect(
+        host="localhost",
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+    )
 
-    # Handle potential errors gracefully
-    try:
-        if len(sys.argv) != 5:
-            raise ValueError("Usage: python script_name.py <username> <password> <state_name>")
+    cur = db.cursor()
+    query = ("SELECT * FROM states WHERE name = '{}' "
+             "ORDER BY id ASC").format(sys.argv[4])
+    cur.execute(query)
 
-        db = MySQLdb.connect(host="localhost",
-                             user=sys.argv[1],
-                             passwd=sys.argv[2],
-                             db=sys.argv[3])
+    for row in cur.fetchall():
+        if row[1] == sys.argv[4]:
+            print(row)
 
-        cur = db.cursor()
-
-        # Use parameterized query for security
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-        cur.execute(query, (sys.argv[4],))  # Tuple for single parameter
-
-        for row in cur.fetchall():
-            if row[1].lower() == sys.argv[4].lower():  # Case-insensitive comparison
-                print(row)
-
-        cur.close()
-        db.close()
-
-    except (ValueError, MySQLdb.Error) as e:
-        print(f"Error: {e}")
+    cur.close()
+    db.close()
