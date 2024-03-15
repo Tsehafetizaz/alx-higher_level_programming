@@ -1,26 +1,34 @@
 #!/usr/bin/python3
 """
-Definition of the State model with a relationship to the City model.
+Creates the State “California” with the City “San Francisco”
+in the database hbtn_0e_100_usa.
+Usage: ./100-rel<mysql password> <database name>
 """
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from relationship_state import Base, State
+from relationship_city import City
+import sys
 
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+if __name__ == "__main__":
+    # Create an engine and bind it to the database
+    engine = create_engine(
+        f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}',
+        pool_pre_ping=True
+    )
+    Base.metadata.create_all(engine)
 
-Base = declarative_base()
+    # Create a session to interact with the database
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
+    # Create a new State "California" with one associated City "San Francisco"
+    new_state = State(name="California")
+    new_state.cities = [City(name="San Francisco")]
 
-class State(Base):
-    """
-    State class:
-    - Inherits from Base (declarative_base()).
-    - Links to the MySQL table states.
-    - Attributes:
-        - id: Integer, primary key, autoincremented, can't be null.
-        - name: String (128 characters), can't be null.
-        - cities: Relationship with the City class, cascade deletion.
-    """
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
-    name = Column(String(128), nullable=False)
-    cities = relationship("City", backref="state", cascade="all, delete")
+    # Add the new State with its City to the session and commit to the database
+    session.add(new_state)
+    session.commit()
+
+    # Close the session
+    session.close()
